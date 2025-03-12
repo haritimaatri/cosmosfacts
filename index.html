@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .fact {
+            font-weight: bold;
+            margin: 20px 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .images img {
+            width: 50px; /* Adjust size as needed */
+            margin: 5px;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #0077b5; /* LinkedIn color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #005582; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Universe Facts</h1>
+        <div id="factDisplay" class="fact"></div>
+        <button id="factButton">Show Random Fact</button>
+        <button id="shareButton">Share on LinkedIn</button>
+        <div class="images">
+            <img src="icon1.png" alt="Icon 1">
+            <img src="icon2.png" alt="Icon 2">
+            <img src="icon3.png" alt="Icon 3">
+            <img src="icon4.png" alt="Icon 4">
+            <img src="icon5.png" alt="Icon 5">
+            <img src="icon6.png" alt="Icon 6">
+            <img src="icon7.png" alt="Icon 7">
+            <img src="icon8.png" alt="Icon 8">
+            <img src="icon9.png" alt="Icon 9">
+            <img src="icon10.png" alt="Icon 10">
+        </div>
+    </div>
+    <script>
+        const facts = [
+            "The Universe is Expanding",
+            "There are More Stars than Grains of Sand",
+            "Black Holes are Invisible",
+            "Neutron Stars are Extremely Dense",
+            "The Milky Way is a Barred Spiral Galaxy",
+            "Light Takes Time to Travel",
+            "The Coldest Place in the Universe",
+            "There are Billions of Earth-like Planets",
+            "The Observable Universe is Huge",
+            "Time Dilation Near Black Holes",
+            "The Sun is a Middle-Aged Star",
+            "Galaxies Can Collide",
+            "The Universe is Mostly Dark Matter and Dark Energy",
+            "The Largest Known Structure",
+            "Cosmic Microwave Background Radiation"
+        ];
+
+        document.getElementById('factButton').onclick = function() {
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.style.opacity = 0; // Fade out
+            setTimeout(() => {
+                factDisplay.innerText = randomFact;
+                factDisplay.style.opacity = 1; // Fade in
+            }, 500);
+        };
+
+        document.getElementById('shareButton').onclick = function() {
+            const factToShare = document.getElementById('factDisplay').innerText;
+            const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(factToShare)}`;
+            window.open(linkedInUrl, '_blank');
+        };
+    </script>
+</body>
+</html>
